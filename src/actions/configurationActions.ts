@@ -1,39 +1,40 @@
+
 'use server';
 
-import { db } from '@/lib/firebase'; // Client SDK, ensure it's configured for server if no Admin SDK
-import { doc, setDoc, getDoc, Timestamp } from 'firebase/firestore';
+import fs from 'fs/promises';
+import path from 'path';
 import type { ServerConfig } from '@/lib/zod-schemas';
 
-const CONFIG_COLLECTION = 'server_configurations';
-const CONFIG_DOC_ID = 'default_config';
+// Resolve the path to config.json in the project root
+const CONFIG_FILE_PATH = path.resolve(process.cwd(), 'config.json');
 
 export async function saveConfiguration(config: ServerConfig): Promise<void> {
   try {
-    const configRef = doc(db, CONFIG_COLLECTION, CONFIG_DOC_ID);
-    // Add a server timestamp for when the config was last updated
-    const dataToSave = { ...config, updatedAt: Timestamp.now() };
-    await setDoc(configRef, dataToSave);
+    // Convert the configuration object to a JSON string
+    const jsonData = JSON.stringify(config, null, 2); // null, 2 for pretty printing
+    // Write the JSON data to config.json
+    await fs.writeFile(CONFIG_FILE_PATH, jsonData, 'utf-8');
   } catch (error) {
-    console.error("Error saving configuration to Firestore:", error);
-    throw new Error("Failed to save configuration.");
+    console.error("Error saving configuration to config.json:", error);
+    throw new Error("Failed to save configuration to local file.");
   }
 }
 
 export async function loadConfiguration(): Promise<ServerConfig | null> {
   try {
-    const configRef = doc(db, CONFIG_COLLECTION, CONFIG_DOC_ID);
-    const docSnap = await getDoc(configRef);
-
-    if (docSnap.exists()) {
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const { updatedAt, ...configData } = docSnap.data(); // Exclude server-generated timestamp if not part of ServerConfig type
-      return configData as ServerConfig;
-    } else {
-      console.log("No such configuration document!");
+    // Read the contents of config.json
+    const fileContents = await fs.readFile(CONFIG_FILE_PATH, 'utf-8');
+    // Parse the JSON data into a ServerConfig object
+    const configData = JSON.parse(fileContents) as ServerConfig;
+    return configData;
+  } catch (error: any) {
+    // If the file doesn't exist, it's not an error, just return null
+    if (error.code === 'ENOENT') {
+      console.log("config.json not found. Using default configuration.");
       return null;
     }
-  } catch (error) {
-    console.error("Error loading configuration from Firestore:", error);
-    throw new Error("Failed to load configuration.");
+    // For other errors, log them and re-throw
+    console.error("Error loading configuration from config.json:", error);
+    throw new Error("Failed to load configuration from local file.");
   }
 }
