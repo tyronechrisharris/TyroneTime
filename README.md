@@ -29,7 +29,7 @@ These instructions will get you a copy of the project up and running on your loc
 2.  **Navigate to the Project Directory:**
     Change into the newly cloned project folder:
     ```bash
-    cd tyronetime-app 
+    cd studio 
     ```
     (Or whatever you named the repository folder.)
 
