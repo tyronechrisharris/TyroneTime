@@ -1,4 +1,6 @@
 import { config } from 'dotenv';
 config();
 
-import '@/ai/flows/optimize-streaming-parameters.ts';
+// This file is used to register Genkit flows for development.
+// Since AI features have been removed, this file can be left empty or
+// used for future AI integrations if needed.

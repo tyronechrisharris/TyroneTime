@@ -1,3 +1,4 @@
+// src/components/chrono-stream/configuration-panel.tsx
 'use client';
 
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -23,11 +24,9 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
-import { Separator } from '@/components/ui/separator';
 import { useToast } from '@/hooks/use-toast';
 import { ServerConfigSchema, type ServerConfig } from '@/lib/zod-schemas';
 import { saveConfiguration, loadConfiguration } from '@/actions/configurationActions';
-import AdaptiveStreamingForm from './adaptive-streaming-form';
 import { Loader2 } from 'lucide-react';
 
 const defaultValues: ServerConfig = {
@@ -84,7 +83,7 @@ export default function ConfigurationPanel() {
       await saveConfiguration(data);
       toast({
         title: 'Configuration Saved',
-        description: 'Your server settings have been successfully updated in Firebase.',
+        description: 'Your server settings have been successfully updated in config.json.',
       });
     } catch (error) {
       console.error('Failed to save configuration:', error);
@@ -171,7 +170,7 @@ export default function ConfigurationPanel() {
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Video Codec</FormLabel>
-                  <Select onValueChange={field.onChange} defaultValue={field.value}>
+                  <Select onValueChange={field.onChange} defaultValue={field.value} value={field.value}>
                     <FormControl>
                       <SelectTrigger>
                         <SelectValue placeholder="Select video codec" />
@@ -192,7 +191,7 @@ export default function ConfigurationPanel() {
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Video Resolution</FormLabel>
-                   <Select onValueChange={field.onChange} defaultValue={field.value}>
+                   <Select onValueChange={field.onChange} defaultValue={field.value} value={field.value}>
                     <FormControl>
                       <SelectTrigger>
                         <SelectValue placeholder="Select resolution" />
@@ -245,27 +244,6 @@ export default function ConfigurationPanel() {
           </Button>
         </form>
       </Form>
-
-      <Separator className="my-8" />
-
-      <div>
-        <h2 className="text-2xl font-semibold mb-2">Adaptive Streaming Optimizer</h2>
-        <p className="text-muted-foreground mb-4">
-          Get AI-powered suggestions for optimal streaming parameters based on current server conditions.
-        </p>
-        <AdaptiveStreamingForm onParametersOptimized={(params) => {
-          form.setValue('videoCodec', params.videoCodec);
-          form.setValue('videoResolution', params.videoResolution);
-          form.setValue('framesPerSecond', params.framesPerSecond);
-          if (params.videoCodec === 'h264' && params.h264IFrameInterval) {
-            form.setValue('h264IFrameInterval', params.h264IFrameInterval);
-          }
-          toast({
-            title: 'Parameters Optimized',
-            description: 'Suggested parameters have been applied to the form. Review and save.',
-          });
-        }} />
-      </div>
     </div>
   );
 }
