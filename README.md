@@ -104,5 +104,3 @@ The default `config.json` includes settings for:
 *   **Configure (`/configure`):** Allows you to modify the server settings which are saved to `config.json`.
 
 ---
-
-This project was prototyped with Firebase Studio.
