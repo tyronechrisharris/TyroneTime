@@ -23,9 +23,8 @@ These instructions will get you a copy of the project up and running on your loc
 1.  **Clone the Repository:**
     Open your terminal or command prompt and clone the repository from GitHub:
     ```bash
-    git clone https://github.com/<YourGitHubUsername>/<YourRepositoryName>.git
+    git clone https://github.com/tyronechrisharris/studio.git
     ```
-    (Replace `<YourGitHubUsername>/<YourRepositoryName>.git` with the actual URL of your GitHub repository.)
 
 2.  **Navigate to the Project Directory:**
     Change into the newly cloned project folder:
