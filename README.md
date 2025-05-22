@@ -18,14 +18,14 @@ These instructions will get you a copy of the project up and running on your loc
 *   **Node.js:** You'll need Node.js installed on your system. Version 18.x or later is recommended. You can download it from [nodejs.org](https://nodejs.org/). npm (Node Package Manager) is included with Node.js.
 *   **Git:** Required to clone the repository. You can download it from [git-scm.com](https://git-scm.com/).
 
-### Installation & Running
+### Installation
 
 1.  **Clone the Repository:**
     Open your terminal or command prompt and clone the repository from GitHub:
     ```bash
     git clone https://github.com/<YourGitHubUsername>/<YourRepositoryName>.git
     ```
-    (Replace `<YourGitHubUsername>/<YourRepositoryName>.git` with the actual URL of your GitHub repository if you've hosted it there.)
+    (Replace `<YourGitHubUsername>/<YourRepositoryName>.git` with the actual URL of your GitHub repository.)
 
 2.  **Navigate to the Project Directory:**
     Change into the newly cloned project folder:
@@ -41,18 +41,51 @@ These instructions will get you a copy of the project up and running on your loc
     ```
     (Alternatively, if you prefer Yarn: `yarn install`)
 
-4.  **Run the Development Server:**
-    Start the Next.js development server:
+
+## Running the Application
+
+You have two main ways to run ChronoStream:
+
+### 1. Development Mode
+
+This mode is suitable for making changes to the code and seeing them live.
+
+*   Run the development server:
     ```bash
     npm run dev
     ```
     (Alternatively, if you prefer Yarn: `yarn dev`)
+*   Open your web browser and navigate to: [http://localhost:9002](http://localhost:9002)
 
-5.  **Open in Your Browser:**
-    Once the server is running (it will typically say something like "ready on http://localhost:9002"), open your web browser and navigate to:
-    [http://localhost:9002](http://localhost:9002)
+### 2. Production Mode (using Launch Scripts)
 
-    You should see the ChronoStream application.
+This mode runs the optimized, built version of the application. Launch scripts are provided for convenience.
+
+**For macOS and Linux:**
+
+1.  Make the launch script executable (you only need to do this once):
+    ```bash
+    chmod +x launch.sh
+    ```
+2.  Run the launch script:
+    ```bash
+    ./launch.sh
+    ```
+
+**For Windows:**
+
+1.  Run the launch batch file:
+    ```bash
+    .\launch.bat
+    ```
+    (Or double-click `launch.bat` in File Explorer)
+
+The launch scripts will:
+1.  Install necessary production dependencies.
+2.  Build the application (if not already built).
+3.  Start the production server on [http://localhost:9002](http://localhost:9002).
+
+Press `Ctrl+C` in the terminal to stop the server.
 
 ## Configuration
 
