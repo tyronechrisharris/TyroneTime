@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'ChronoStream',
+  title: 'TyroneTime',
   description: 'RTSP Millisecond Clock & Connection Count Streaming Server',
 };
 
@@ -38,7 +38,7 @@ export default function RootLayout({
             {children}
           </main>
           <footer className="py-6 text-center text-sm text-muted-foreground">
-            ChronoStream &copy; {new Date().getFullYear()}
+            TyroneTime &copy; {new Date().getFullYear()}
           </footer>
         </div>
         <Toaster />

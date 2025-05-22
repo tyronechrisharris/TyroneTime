@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { StoreIcon } from 'lucide-react'; // Using StoreIcon as StreamIcon is not available
+import { StoreIcon } from 'lucide-react'; 
 
 export default function Header() {
   return (
@@ -9,7 +9,7 @@ export default function Header() {
         <Link href="/" className="mr-6 flex items-center space-x-2">
           <StoreIcon className="h-6 w-6 text-primary" />
           <span className="font-bold sm:inline-block text-lg">
-            ChronoStream
+            TyroneTime
           </span>
         </Link>
         <nav className="flex flex-1 items-center space-x-4">

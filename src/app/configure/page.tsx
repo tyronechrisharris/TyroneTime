@@ -1,4 +1,4 @@
-import ConfigurationPanel from '@/components/chrono-stream/configuration-panel';
+import ConfigurationPanel from '@/components/tyrone-time/configuration-panel';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 
 export default function ConfigurePage() {
@@ -9,7 +9,7 @@ export default function ConfigurePage() {
           Server Configuration
         </h1>
         <p className="text-lg text-muted-foreground mt-2">
-          Manage your ChronoStream RTSP server settings and optimize streaming parameters.
+          Manage your TyroneTime RTSP server settings.
         </p>
       </section>
       
@@ -17,7 +17,7 @@ export default function ConfigurePage() {
         <CardHeader>
           <CardTitle>Streaming Parameters</CardTitle>
           <CardDescription>
-            Define the core settings for your RTSP server. These settings will be saved to Firebase.
+            Define the core settings for your RTSP server. These settings will be saved to config.json.
           </CardDescription>
         </CardHeader>
         <CardContent>

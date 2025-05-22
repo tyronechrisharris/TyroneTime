@@ -1,12 +1,12 @@
 #!/bin/bash
 
-# launch.sh - Script to build and run the ChronoStream Next.js application
+# launch.sh - Script to build and run the TyroneTime Next.js application
 # for macOS and Linux.
 
 # Exit immediately if a command exits with a non-zero status.
 set -e
 
-echo "ChronoStream Launcher for macOS/Linux"
+echo "TyroneTime Launcher for macOS/Linux"
 echo "--------------------------------------"
 
 # Navigate to the script's directory to ensure commands run in the project root
@@ -32,4 +32,4 @@ echo "Press Ctrl+C to stop the server."
 npm run start
 
 echo ""
-echo "ChronoStream server has been stopped."
+echo "TyroneTime server has been stopped."

@@ -1,6 +1,6 @@
-# ChronoStream: Real-time Adaptive Streaming (Local Network Tool)
+# TyroneTime: Real-time Clock & Connection Monitor (Local Network Tool)
 
-ChronoStream is a Next.js application designed to display a real-time millisecond-precision clock and a simulated RTSP client connection count. It's intended for use as an offline, local network tool for testing and monitoring systems. All configuration is handled locally via a `config.json` file.
+TyroneTime is a Next.js application designed to display a real-time millisecond-precision clock and a simulated RTSP client connection count. It's intended for use as an offline, local network tool for testing and monitoring systems. All configuration is handled locally via a `config.json` file.
 
 ## Core Features:
 
@@ -30,7 +30,7 @@ These instructions will get you a copy of the project up and running on your loc
 2.  **Navigate to the Project Directory:**
     Change into the newly cloned project folder:
     ```bash
-    cd chronostream-app 
+    cd tyronetime-app 
     ```
     (Or whatever you named the repository folder.)
 
@@ -44,7 +44,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 ## Running the Application
 
-You have two main ways to run ChronoStream:
+You have two main ways to run TyroneTime:
 
 ### 1. Development Mode
 
@@ -89,7 +89,7 @@ Press `Ctrl+C` in the terminal to stop the server.
 
 ## Configuration
 
-ChronoStream stores its server configuration settings in a `config.json` file located in the root of the project. You can modify this file directly to change settings, or use the "Configure" page within the application UI, which will then update `config.json`.
+TyroneTime stores its server configuration settings in a `config.json` file located in the root of the project. You can modify this file directly to change settings, or use the "Configure" page within the application UI, which will then update `config.json`.
 
 The default `config.json` includes settings for:
 *   Viewer Username & Password
