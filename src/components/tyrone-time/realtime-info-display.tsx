@@ -5,7 +5,7 @@ import ConnectionCounter from './connection-counter';
 import { useState, useEffect } from 'react';
 
 export default function RealtimeInfoDisplay() {
-  // Placeholder for connection count. In a real scenario, this might come from an API.
+  // Placeholder for connection count. In a real scenario, this might come from an API or other data source.
   const [connectionCount, setConnectionCount] = useState(0);
 
   useEffect(() => {
